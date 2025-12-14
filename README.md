@@ -22,6 +22,12 @@ The application supports authentication, inventory management, and purchasing sw
 - Quantity maintained at backend
 - Real-time update after purchase
 
+### Admin Credentials (for testing)
+- Email: user1@gmail.com
+- Password: user@123
+
+- Use this account to test admin-only features like creating, updating, restocking, and deleting sweets.
+
 ### Frontend
 - Modern React UI (pure CSS)
 - Protected routes
