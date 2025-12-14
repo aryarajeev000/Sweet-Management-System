@@ -146,12 +146,20 @@ Writing and debugging Jest test cases
 
 Understanding ESM + Jest configuration issues
 
-## ScreenShot
-1. Login
-<img width="1869" height="937" alt="image" src="https://github.com/user-attachments/assets/24353efc-d7b0-4488-802e-1d60a8b9748b" />
+## 📸 Screenshots
 
-2. Register
-<img width="1870" height="960" alt="image" src="https://github.com/user-attachments/assets/fc7b298a-cb85-41f3-88b5-d306e16749cd" />
+### 🔐 Login Page
+![Login](screenshots/login.png)
+
+### 🍬 Sweets Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+### ➕ Add Sweet (Admin)
+![Add Sweet](screenshots/add-sweet.png)
+
+### 🌙 Dark Mode
+![Dark Mode](screenshots/dark-mode.png)
+
 
 
 
