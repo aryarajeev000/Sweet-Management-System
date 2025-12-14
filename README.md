@@ -22,12 +22,6 @@ The application supports authentication, inventory management, and purchasing sw
 - Quantity maintained at backend
 - Real-time update after purchase
 
-### Admin Credentials (for testing)
-- Email: user1@gmail.com
-- Password: user@123
-
-- Use this account to test admin-only features like creating, updating, restocking, and deleting sweets.
-
 ### Frontend
 - Modern React UI (pure CSS)
 - Protected routes
@@ -57,6 +51,17 @@ The application supports authentication, inventory management, and purchasing sw
 - Pure CSS
 
 ---
+## Deployment
+
+Frontend deployed on Vercel  
+Backend deployed on Render  
+Database hosted on MongoDB Atlas  
+
+### Admin Credentials
+Email: user1@gmail.com  
+Password: user@123  
+
+Admin users can create, update, restock, and delete sweets.
 
 ## 📂 Project Structure
 
