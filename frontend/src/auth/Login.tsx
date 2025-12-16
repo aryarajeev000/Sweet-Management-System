@@ -14,8 +14,9 @@ const Login = () => {
       setLoading(true);
       await login(email, password);
       navigate("/");
-    } catch {
-      alert("Invalid credentials");
+    } catch (error: any) {
+      const errorMessage = error.response?.data?.message || error.message || "Invalid credentials. Please try again.";
+      alert(errorMessage);
     } finally {
       setLoading(false);
     }

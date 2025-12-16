@@ -10,12 +10,20 @@ const Register = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (password.length < 6) {
+      alert("Password must be at least 6 characters long");
+      return;
+    }
+
     try {
       setLoading(true);
       await register(email, password);
+      alert("Registration successful! Please login.");
       navigate("/login");
-    } catch {
-      alert("Registration failed");
+    } catch (error: any) {
+      const errorMessage = error.response?.data?.message || error.message || "Registration failed. Please try again.";
+      alert(errorMessage);
     } finally {
       setLoading(false);
     }

@@ -32,6 +32,9 @@ const Sweets = () => {
       const res = await api.get("/sweets");
       setSweets(res.data);
       setFilteredSweets(res.data);
+    } catch (error: any) {
+      const errorMessage = error.response?.data?.message || error.message || "Failed to fetch sweets";
+      alert(errorMessage);
     } finally {
       setLoading(false);
     }
@@ -55,8 +58,13 @@ const Sweets = () => {
 
   /* ================= USER ACTION ================= */
   const purchaseSweet = async (id: string) => {
-    await api.post(`/sweets/${id}/purchase`, { quantity: 1 });
-    fetchSweets();
+    try {
+      await api.post(`/sweets/${id}/purchase`, { quantity: 1 });
+      fetchSweets();
+    } catch (error: any) {
+      const errorMessage = error.response?.data?.message || error.message || "Failed to purchase sweet";
+      alert(errorMessage);
+    }
   };
 
   /* ================= ADMIN ACTIONS ================= */
@@ -66,15 +74,25 @@ const Sweets = () => {
       return;
     }
 
-    await api.post("/sweets", {
-      name: form.name,
-      category: form.category,
-      price: Number(form.price),
-      quantity: Number(form.quantity),
-    });
+    if (!form.price || !form.quantity || Number(form.price) <= 0 || Number(form.quantity) < 0) {
+      alert("Price must be greater than 0 and quantity must be 0 or greater");
+      return;
+    }
 
-    setForm({ name: "", category: "", price: "", quantity: "" });
-    fetchSweets();
+    try {
+      await api.post("/sweets", {
+        name: form.name,
+        category: form.category,
+        price: Number(form.price),
+        quantity: Number(form.quantity),
+      });
+
+      setForm({ name: "", category: "", price: "", quantity: "" });
+      fetchSweets();
+    } catch (error: any) {
+      const errorMessage = error.response?.data?.message || error.message || "Failed to add sweet";
+      alert(errorMessage);
+    }
   };
 
   const updateSweet = async (id: string) => {
@@ -82,29 +100,55 @@ const Sweets = () => {
     const quantity = prompt("Enter new quantity:");
     if (!price || !quantity) return;
 
-    await api.put(`/sweets/${id}`, {
-      price: Number(price),
-      quantity: Number(quantity),
-    });
+    if (Number(price) <= 0 || Number(quantity) < 0) {
+      alert("Price must be greater than 0 and quantity must be 0 or greater");
+      return;
+    }
 
-    fetchSweets();
+    try {
+      await api.put(`/sweets/${id}`, {
+        price: Number(price),
+        quantity: Number(quantity),
+      });
+
+      fetchSweets();
+    } catch (error: any) {
+      const errorMessage = error.response?.data?.message || error.message || "Failed to update sweet";
+      alert(errorMessage);
+    }
   };
 
   const restockSweet = async (id: string) => {
     const qty = prompt("Restock quantity:");
     if (!qty) return;
 
-    await api.post(`/sweets/${id}/restock`, {
-      quantity: Number(qty),
-    });
+    if (Number(qty) <= 0) {
+      alert("Restock quantity must be greater than 0");
+      return;
+    }
 
-    fetchSweets();
+    try {
+      await api.post(`/sweets/${id}/restock`, {
+        quantity: Number(qty),
+      });
+
+      fetchSweets();
+    } catch (error: any) {
+      const errorMessage = error.response?.data?.message || error.message || "Failed to restock sweet";
+      alert(errorMessage);
+    }
   };
 
   const deleteSweet = async (id: string) => {
     if (!window.confirm("Are you sure you want to delete this sweet?")) return;
-    await api.delete(`/sweets/${id}`);
-    fetchSweets();
+    
+    try {
+      await api.delete(`/sweets/${id}`);
+      fetchSweets();
+    } catch (error: any) {
+      const errorMessage = error.response?.data?.message || error.message || "Failed to delete sweet";
+      alert(errorMessage);
+    }
   };
 
   if (loading) return <p style={{ textAlign: "center" }}>Loading...</p>;

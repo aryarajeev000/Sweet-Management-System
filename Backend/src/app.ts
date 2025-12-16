@@ -15,6 +15,20 @@ app.use(
 
 app.use(express.json());
 
+// Request logging middleware
+app.use((req, res, next) => {
+  console.log("[REQUEST]", {
+    method: req.method,
+    path: req.path,
+    timestamp: new Date().toISOString(),
+    body: req.method === "POST" || req.method === "PUT" ? {
+      ...req.body,
+      password: req.body?.password ? "***" : undefined,
+    } : undefined,
+  });
+  next();
+});
+
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/sweets", sweetRoutes);

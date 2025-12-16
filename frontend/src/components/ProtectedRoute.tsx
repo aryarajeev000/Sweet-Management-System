@@ -1,9 +1,11 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
+import { isTokenValid } from "../utils/auth";
 
 const ProtectedRoute = ({ children }: { children: React.JSX.Element }) => {
-  const token = localStorage.getItem("token");
-  if (!token) return <Navigate to="/login" />;
+  if (!isTokenValid()) {
+    return <Navigate to="/login" />;
+  }
   return children;
 };
 
