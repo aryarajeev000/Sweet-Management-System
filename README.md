@@ -22,12 +22,6 @@ The application supports authentication, inventory management, and purchasing sw
 - Quantity maintained at backend
 - Real-time update after purchase
 
-### Admin Credentials (for testing)
-- Email: user1@gmail.com
-- Password: user@123
-
-- Use this account to test admin-only features like creating, updating, restocking, and deleting sweets.
-
 ### Frontend
 - Modern React UI (pure CSS)
 - Protected routes
@@ -57,6 +51,17 @@ The application supports authentication, inventory management, and purchasing sw
 - Pure CSS
 
 ---
+## Deployment
+
+Frontend deployed on Vercel  
+Backend deployed on Render  
+Database hosted on MongoDB Atlas  
+
+### Admin Credentials
+Email: user1@gmail.com  
+Password: user@123  
+
+Admin users can create, update, restock, and delete sweets.
 
 ## 📂 Project Structure
 
@@ -141,12 +146,20 @@ Writing and debugging Jest test cases
 
 Understanding ESM + Jest configuration issues
 
-## ScreenShot
-1. Login
-<img width="1869" height="937" alt="image" src="https://github.com/user-attachments/assets/24353efc-d7b0-4488-802e-1d60a8b9748b" />
+## 📸 Screenshots
 
-2. Register
-<img width="1870" height="960" alt="image" src="https://github.com/user-attachments/assets/fc7b298a-cb85-41f3-88b5-d306e16749cd" />
+### 🔐 Login Page
+![Login](screenshots/login.png)
+
+### 🍬 Sweets Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+### ➕ Add Sweet (Admin)
+![Add Sweet](screenshots/add-sweet.png)
+
+### 🌙 Dark Mode
+![Dark Mode](screenshots/dark-mode.png)
+
 
 
 
