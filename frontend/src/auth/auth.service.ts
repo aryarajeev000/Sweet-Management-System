@@ -2,7 +2,7 @@ import axios from "axios";
 
 const AUTH_API = axios.create({
   //baseURL: "http://localhost:5000/api",
-  baseURL: "https://sweet-management-system-9vw4.onrender.com",
+  baseURL: "https://sweet-management-system-9vw4.onrender.com/api",
 });
 
 export const login = async (email: string, password: string) => {

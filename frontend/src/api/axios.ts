@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
-  // baseURL: "https://sweet-management-system-9vw4.onrender.com",
+  //baseURL: "http://localhost:5000/api",
+   baseURL: "https://sweet-management-system-9vw4.onrender.com/api",
 });
 
 /* ================= REQUEST INTERCEPTOR ================= */
